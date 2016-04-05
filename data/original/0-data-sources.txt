@@ -1,0 +1,27 @@
+
+All the data files described below can be downloaded using the
+following link: https://stanford.box.com/s/f21r1llsygh9o59lkop48hm0yl5dza7j
+
+======================================================================
+NYC 311 data
+======================================================================
+
+The data for 2004/01-2015/10 are stored in csv files in
+'311requests.tar.gz'. Data for later dates are added using
+update311.R.
+
+The data come from NYC's open data portal: 
+- https://nycopendata.socrata.com/browse/embed?tags=all+service+requests&utf8=%E2%9C%93 
+- https://nycopendata.socrata.com/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9 
+
+
+======================================================================
+Neighborhood boundaries
+======================================================================
+
+Neighborhood boundaries are stored in 'nyc-polyg-neighborhood.zip' and
+come from NYC's department of planning: 
+- http://www.nyc.gov/html/dcp/html/bytes/dwn_nynta.shtml
+
+
+

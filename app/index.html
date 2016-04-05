@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+    <title>Visualizing NYC's 3-1-1 service request data</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.5/css/bootstrap-dialog.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-graphs.css" rel="stylesheet">
+  </head>
+  
+  
+  <body>
+    
+    
+    <!-- google map -->
+    <div class="row" id="map-display">     
+      <div id="map-container"> 
+	
+	
+	<div id="map"></div>
+	
+	<div class="col-lg-6 col-md-7 col-xs-9 col-md-offset-1" id="over_map">
+	  
+	  <div class="flash" id="intro_text">
+	    <h1 id="intro-header"> How is your neighborhood doing? </h1> 
+	    <p class="lead">
+	      Since 2004 over 15 million service requests have been
+	      filed by residents in NYC.  The government responds quicker in
+	      some neighborhoods than in others. 
+	    </p>
+	    
+	    <p class="lead">
+	      Search for an address or double click on a neighborhood
+	      to the right to find out how your neighborhood is doing. 
+	    </p>
+	    
+	    <input id="pac-input" class="controls" type="text" placeholder='Search (for example, "Chinatown", "20 Clark St")'>
+	    
+	    <div id="neighborhood-div"> </div>
+	    
+	  </div>
+	  
+	</div>
+	
+	
+	
+	
+	
+      </div>
+    </div>
+    <!-- /google map -->
+    
+    
+    <div class="hidden" id="content">      
+      
+      
+      <!-- basic neighborhood info --> 
+      <div class="row section" id="basic-info">
+	<div class="header"> Quick Facts </div> 
+	
+	<div class="col-sm-10 col-sm-offset-1 feature-list"> 
+	  
+	  
+	  <div class="row">
+	    
+	    <div class="col-lg-5 col-sm-6">
+	      
+	      <h2><i class="fa fa-database"></i> Number of requests: <span class="nrequests"> </span> </h2>
+	      <p> This is the number of service requests that were filed by residents in <span class="nname"> </span> between <span class="daterange"></span> and <span class="today"></span>.</p>
+	    </div>
+	    
+	    <div class="col-lg-5 col-lg-offset-1 col-sm-6">
+	      <h2><i class="fa fa-check"></i> Resolved requests: <span class="pcsolved"> </span>% </h2>
+	      <p> Most service requests are resolved at some point &mdash; what matters more is how quickly they are resolved. </p>
+	    </div>
+	    
+	  </div> 
+	  
+	  <div class="row">
+	    <div class="col-lg-5 col-sm-6">
+	      <h2><i class="fa fa-clock-o"></i> Mean response time: <span class="avgrt"> </span> days</h2>
+	      <p> This gives the average number of days it took government agencies to respond to requests in <span class="nname"></span>. <span class="notsolved"> </span> unresolved requests (<span class="pcnotsolved"> </span>% of the total) are not included in this number. </p>
+	    </div> 
+	    
+	    <div class="col-lg-5 col-lg-offset-1 col-sm-6">
+	      <h2><i class="fa fa-bar-chart "></i> Overall rank: <span class="pcrankrt"> </span>   </h2>
+	      <p> <span class="nname"> </span> ranks <span class="rankrt"> </span> out of <span class="nneighborhoods"> </span> neighborhoods in NYC in how quickly service
+		requests were resolved between <span class="daterange"></span> and <span class="today"></span>. </p>
+	    </div>
+	  </div>
+	  
+	  
+	</div>
+      </div>
+      <!-- /basic neighborhood info -->
+      
+      
+      <!---------------------------------------------------------------------------------- 
+          line graph
+	---------------------------------------------------------------------------------->
+      
+      <div class="row section" id="linegraph-section">
+	<div class="header"> Responsiveness Over Time </div>
+	
+	<div class="col-lg-11 col-lg-offset-1"> 
+	  
+	  <div class="row"> 
+	    <div class="col-xs-8">
+	      <div id="linegraph"> </div>
+	    </div>
+	    
+	    <div class="col-xs-3">
+	      
+	      <div class="panel panel-default">
+		<div class="panel-heading">Request category</div>
+		<ul class="list-group" id="requestlist"></ul>
+		
+		<div class="panel-footer">
+		  <div class="checkbox">
+		    <label class="checkbox-inline">
+		      <input type="checkbox" id="selectall"> <span style="font-size: 11px">Select all</span>
+		    </label>
+		    <label class="checkbox-inline" style="margin-right: 35px">
+		      <input type="checkbox" id="deselectall"> <span style="font-size: 11px">Deselect all</span> 
+		    </label>
+		  </div>
+		</div>
+		
+              </div>
+	      
+	      
+	      
+	    </div> 
+	    
+	  </div> 
+	</div>
+      </div> 
+      
+      
+      
+      <!---------------------------------------------------------------------------------- 
+          row with neighborhood choropleth
+	---------------------------------------------------------------------------------->
+      <div class="row section" id="choropleth-section">
+	<div class="header"> Compared to Other Neighborhoods </div>
+	<div class="col-lg-10 col-lg-offset-2"> 
+	  <div id="choropleth-map"> </div>
+	</div> 
+      </div>
+      
+    </div> <!-- /content --> 
+
+
+    
+    <!-- Footer -->
+    <footer class="hidden footer">
+      <div class="container text-center">
+        <p class="small"> project by <a href="http://stanford.edu/~ejdemyr/" target="_blank"> sejdemyr</a> <br>
+	  <a href="https://github.com/sejdemyr/visreq" target="_blank"> view on github</a> </p> 
+      </div>
+    </footer>
+
+    
+    
+    <!---------------------------------------------------------------------------------->
+    <!-- external javascript libraries -->
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.15/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.5/js/bootstrap-dialog.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js"></script>     
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9ykypr1vNCuTFfO6_ydDjlzN26Aw3W4A&libraries=geometry,places&callback=initAutocomplete" async defer></script>
+    <script src="js/typed.js"></script>
+    
+    <!-- custom javascript files -->
+    <script src="js/choropleth.map.js"></script>
+    <script src="js/line.graph.js"></script>
+    <script src="js/load.data.js"></script>
+    <script src="js/google.map.js"></script>
+    <script src="js/visualize.master.js"></script>
+
+  </body>
+</html>
