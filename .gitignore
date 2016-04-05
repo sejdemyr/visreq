@@ -1,10 +1,10 @@
 
 # Data #
 ########
-data/original/*
+data/original/311requests.tar.gz
+data/original/nyc-polyg-neighborhood.zip
 data/processed/*
-app/data/*
-!data/original/0-data-sources.txt
+!data/processed
 
 # Logs #
 ########
