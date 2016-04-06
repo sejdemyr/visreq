@@ -13,12 +13,8 @@ h1 {
     font-size: 40px;
 }
 
-#content {
-    margin: 50px 0 100px 0; 
-}
-
 .section {
-    margin: 0 10px 80px 10px; 
+    padding: 50px 0 80px 0; 
 }
 
 footer {
@@ -26,25 +22,27 @@ footer {
     bottom: 0; 
 }
 
-.header {
-    display: inline-block;
-    color: #ddd;
-    letter-spacing: 1px;
-    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial; 
-    font-size: 40px;
-    font-weight: 700; 
-    text-transform: uppercase;
-    margin-bottom: 40px;
-    padding-left: 15px; 
+#basic-info {
+    background-color: #ffffff; 
+    /*background-image: -webkit-linear-gradient(top,#ddd 0,#fff 100%);
+    background-image: linear-gradient(to bottom,#ddd 0,#fff 100%);*/
 }
 
 #basic-info > p {
     padding-bottom: 5px; 
 }
 
-#basic-info > .header {
-    margin-bottom: 15px; 
+.header {
+    color: #ddd;
+    letter-spacing: -3px;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial; 
+    font-size: 65px;
+    font-weight: 700; 
+    text-transform: uppercase;
+    margin-bottom: 0; 
+    margin-left: -4px; 
 }
+
 
 #over_map {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial;   
@@ -89,20 +87,12 @@ input[type="radio"] {
     cursor: pointer; 
 }
 
-#linegraph-section {
+#linegraph-section, #choropleth-section {
     min-width: 1130px;
-    /*background-image: -webkit-linear-gradient(top,#c4c4c4 0,#fff 100%);
-    background-image: linear-gradient(to bottom,#c4c4c4 0,#fff 100%);*/
 }
 
-#choropleth-section {
-    min-width: 1130px; 
-}
-
-@media (max-width: 991px) {
-    #choropleth-section > .header {
-	margin-bottom: 20px; 
-    }
+.section-explanation {
+    font-size: 24px;
 }
 
 

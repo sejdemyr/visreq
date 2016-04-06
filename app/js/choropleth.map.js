@@ -27,7 +27,7 @@ function choroplethMap(neighborhood) {
 
     var color = d3.scale.threshold()
 	.domain([17, 21, 25])
-	.range(['#e6e6fa','#b2aad4','#7d71af','#483d8b']);
+	.range(["#edf8fb","#b3cde3","#8c96c6","#88419d"]);
     
     var blocks = svg.selectAll("path")
 	.data(neighborhoods.features);
@@ -67,7 +67,7 @@ function choroplethMap(neighborhood) {
 
 
     // Add a pointer, a curved line pointing to the neighborhood
-    var sval = [100, 10]; // starting values for line relative to svg
+    var sval = [110, 0]; // starting values for line relative to svg
 
     var projectedCentroids = [];
     neighborhoods.features.forEach(function(d) {
@@ -122,14 +122,10 @@ function choroplethMap(neighborhood) {
 		    pcrank = d3.round(100 * pcrank, 0), 
 		    rank = (pcrank > 50) ? "bottom " + (100 - pcrank) : "top " + pcrank; 
 		
-		return "<tspan x=-2.2em dy=1.2em>" +
-		    "The average response time in " +
-		    neighborhood + " is " + d3.round(d.properties.avgresptime, 1) +
-		    " days, </tspan>" +
-
-		"<tspan x=-2.2em dy=1.2em>" +
-		    "which ranks in the " + "\n" + rank +
-		    "% of all neighborhoods in NYC</tspan>"
+		return "<tspan x=-2.6em dy=-0.7em>" +
+		    neighborhood + " (average response time = " +
+		    d3.round(d.properties.avgresptime, 1) +
+		    " days) </tspan>"
 		
 	    }
 	})
@@ -138,8 +134,8 @@ function choroplethMap(neighborhood) {
     text
 	.enter().append("text")
         .attr("class", "explain")
-	.attr("x", sval[0] - 70)
-        .attr("y", sval[1] - 40)
+	.attr("x", sval[0])
+        .attr("y", sval[1])
  
     text.exit().remove();
 

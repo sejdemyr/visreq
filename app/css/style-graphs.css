@@ -1,7 +1,8 @@
 
 
 #choropleth-map {
-    margin-left: -10px; 
+    margin-left: -10px;
+    margin-top: -20px; 
 }
 
 .axis path, .axis line {
