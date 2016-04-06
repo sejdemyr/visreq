@@ -9,27 +9,8 @@ h1#intro-header {
     padding-bottom: 10px; 
 }
 
-h1 {
-    font-size: 40px;
-}
-
 .section {
-    padding: 50px 0 80px 0; 
-}
-
-footer {
-    padding-top: 70px;   
-    bottom: 0; 
-}
-
-#basic-info {
-    background-color: #ffffff; 
-    /*background-image: -webkit-linear-gradient(top,#ddd 0,#fff 100%);
-    background-image: linear-gradient(to bottom,#ddd 0,#fff 100%);*/
-}
-
-#basic-info > p {
-    padding-bottom: 5px; 
+    padding: 50px 0 60px 0; 
 }
 
 .header {
@@ -42,6 +23,48 @@ footer {
     margin-bottom: 0; 
     margin-left: -4px; 
 }
+
+@media (max-width: 991px) { 
+    h1#intro-header {
+	font-size: 45px;
+    }
+    .section {
+	padding: 30px 0 50px 0; 
+    }
+    .header {
+	font-size: 55px;
+    }
+}
+
+@media (max-width: 500px) { 
+    h1#intro-header {
+	font-size: 30px;
+    }
+    .section {
+	padding: 20px 0 30px 0; 
+    }
+    .header {
+	font-size: 45px;
+	line-height: 50px; 
+    }
+}
+
+
+h1 {
+    font-size: 40px;
+}
+
+
+footer {
+    padding-top: 70px;   
+    bottom: 0; 
+}
+
+#basic-info > p {
+    padding-bottom: 5px; 
+}
+
+
 
 
 #over_map {
@@ -87,14 +110,14 @@ input[type="radio"] {
     cursor: pointer; 
 }
 
-#linegraph-section, #choropleth-section {
-    min-width: 1130px;
-}
 
 .section-explanation {
     font-size: 24px;
 }
 
+#linegraph-container {
+    min-width: 1050px; 
+}
 
 
 /*--------------------------------------------------------------------------
@@ -159,3 +182,17 @@ input[type="radio"] {
     width: 345px;
 }
 
+@media (max-width: 991px) { 
+    #map {
+	padding: 270px;
+    }
+}
+
+@media (max-width: 500px) { 
+    #map {
+	padding: 200px;
+    }
+    #pac-input {
+	width: 310px; 
+    }
+}

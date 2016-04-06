@@ -1,5 +1,3 @@
-
-// Chart dimensions 
 var margin = {top: 50.5, right: 25, bottom: 35, left: 40},
     width = 1000 - margin.right,
     height = 700 - margin.top - margin.bottom;
@@ -212,4 +210,3 @@ function choroplethMap(neighborhood) {
     }
     
 }
-

@@ -1,7 +1,9 @@
 
 /*
 ---------------------------------------------------------------------- 
-   This script defines a few globals and loads three datasets
+   This script defines a few globals, loads three datasets, and 
+   specifies a function that calls a set of visualizations given 
+   a neighborhood selection
 ----------------------------------------------------------------------
 */
 
@@ -22,7 +24,6 @@ d3.json("data/neighborbound.topo.json", function(error, dta) {
     if (error) return console.warn(error);
 
     neighborhoods = topojson.feature(dta, dta.objects.neighborbound); 
-    console.log(neighborhoods); 
 
     if (typeof google !== "undefined") {
 	initAutocomplete();
@@ -90,3 +91,34 @@ d3.csv("data/nyc311-byneighyeartype.csv", function(error, dta) {
     checkboxes(); 
 
 }); 
+
+
+// Function that filters the response data given a neighborhood
+// selection and displays (1) key facts, (2) the line graph, and (3)
+// the choropleth map.
+// @para name: name of the selected neighborhood
+// @para time: time dimension; this version has only one ("All time")
+
+function visualizeData(name, time) {  
+    
+    // Filter response data given neighborhood name and time dimension
+    var responseFiltered = neighResponse.filter(function(d) {
+	return d.neighborhood == name && d.time == time; 
+    });
+    
+    // Display info associated with selected neighborhood
+    displayNeighborhoodStats(responseFiltered);
+
+    // Display line graph
+    lineGraph(name, ["All"]);
+    clearCheckList();
+
+    // Display neighborhood map
+    choroplethMap(name);
+}
+
+
+
+
+
+

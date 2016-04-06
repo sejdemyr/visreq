@@ -1,33 +1,10 @@
 
 /*
 ---------------------------------------------------------------------- 
-   This script visualizes the 311 data aggregated to neighborhoods 
-   given a user selection of a specific neighborhood
+   This script populates the statistics under Quick Facts as well as 
+   the neighborhood name on top of the google map after a selection
 ----------------------------------------------------------------------
 */
-
-// Function that filters the response data and displays (1) key facts,
-// (2) the line graph, and (3) the choropleth map.
-// @para name: name of the selected neighborhood
-// @para time: the time dimension (in this version there's only one, "All time") 
-
-function visualizeData(name, time) {  
-    
-    // Filter response data given neighborhood name and time dimension
-    var responseFiltered = neighResponse.filter(function(d) {
-	return d.neighborhood == name && d.time == time; 
-    });
-    
-    // Display info associated with selected neighborhood
-    displayNeighborhoodStats(responseFiltered);
-
-    // Display line graph
-    lineGraph(name, ["All"]);
-    clearCheckList();
-
-    // Display neighborhood map
-    choroplethMap(name);
-}
 
 // Function that populates basic statistics about the selected neighborhood
 // @para ndta: response data for the selected neighborhood 

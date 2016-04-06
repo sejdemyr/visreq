@@ -1,12 +1,4 @@
 
-/*
----------------------------------------------------------------------- 
-   This script initializes the Google Map and specifies what happens
-   when the user searches for an address or double clicks on one of
-   the neighborhood polygons 
-----------------------------------------------------------------------
-*/
-
 
 function initAutocomplete() {
     

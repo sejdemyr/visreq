@@ -1,6 +1,11 @@
 
+# Run on server?
+server <- TRUE
+
 # Set working directory 
-setwd("~/dropbox/311")
+if(!server) {
+    setwd("~/dropbox/311")
+}
 
 # Load packages 
 pkgs <- c("stringr", "lubridate", "data.table", "ibdreg", "sp",
