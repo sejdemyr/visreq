@@ -42,7 +42,7 @@ if(run_full) {
 
 
 # Add data for later dates---------
-# A cron script can be used to update data daily 
+# A cron script is used to update data daily 
 
 # Grab newly added data from NYC's Open Data portal
 source("r/update311.R", echo = T)

@@ -123,7 +123,7 @@ function choroplethMap(neighborhood) {
 		    rank = (pcrank > 50) ? "bottom " + (100 - pcrank) : "top " + pcrank; 
 		
 		return "<tspan x=-2.6em dy=-0.7em>" +
-		    neighborhood + " (average response time = " +
+		    neighborhood + " (average response time: " +
 		    d3.round(d.properties.avgresptime, 1) +
 		    " days) </tspan>"
 		

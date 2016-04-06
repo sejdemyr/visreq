@@ -26,6 +26,17 @@ nyc311 <- nyc311 %>%
            lastmonth = ifelse(as.Date(opened) > Sys.Date() - months(1), 1, 0),
            lastweek = ifelse(as.Date(opened) > Sys.Date() - weeks(1), 1, 0))
 
+# Rename some request types
+unique(nyc311$type15)
+nyc311$type15 <- plyr::revalue(nyc311$type15, c(
+    "building/use" = "building",
+    "nonconst" = "other", 
+    "bridge/highway/street" = "street",
+    "sanitation/cleaning" = "sanitation",
+    "paint/graffiti" = "graffiti"
+    ))
+
+
 
 #-----------------------------------------------------------------------
 # Aggregate data (using 'aggregate_311' in functions.R)
@@ -63,5 +74,4 @@ agg.nyt$nid <- group_indices(agg.nyt, neighborhood) - 1
 # Write files
 write.csv(na.omit(agg.n), "app/data/nyc311-byneightime.csv", row.names = F)
 write.csv(agg.nyt, "app/data/nyc311-byneighyeartype.csv", row.names = F)
-
 
