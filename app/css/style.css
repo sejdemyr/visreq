@@ -21,7 +21,8 @@ h1#intro-header {
     font-weight: 700; 
     text-transform: uppercase;
     margin-bottom: 0; 
-    margin-left: -4px; 
+    margin-left: -4px;
+    line-height: 70px;
 }
 
 @media (max-width: 991px) { 
@@ -33,7 +34,7 @@ h1#intro-header {
     }
     .header {
 	font-size: 55px;
-	line-height: 62px;
+	line-height: 60px;
     }
 }
 
