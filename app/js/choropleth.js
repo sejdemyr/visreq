@@ -1,10 +1,11 @@
+
 var margin = {top: 50.5, right: 25, bottom: 35, left: 40},
-    width = 1000 - margin.right,
-    height = 700 - margin.top - margin.bottom;
+    width = 800 - margin.right,
+    height = 620 - margin.top - margin.bottom;
 
 var projection =  d3.geo.mercator()
     .center([-73.95, 40.70])
-    .scale(70000)
+    .scale(65000)
     .translate([(width) / 2, (height)/2]);
 
 var path = d3.geo.path()
@@ -16,10 +17,9 @@ var svg = d3.select("#choropleth-map").append("svg")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")"); 
 
-var div = d3.select('body').append('div') 
+var tooltip = d3.select("#choropleth-map").append('div') 
     .attr("class", "tooltip")               
-    .style("opacity", 0);
-
+    .style("opacity", 1);
 
 function choroplethMap(neighborhood) {
 
@@ -173,8 +173,6 @@ function choroplethMap(neighborhood) {
 	.attr("x", 15)
         .text("Average response time")
 
-
-    // Add tooltip
     blocks
 	.on("mouseover", mouseover)
         .on("mousemove", mousemove)
@@ -184,7 +182,7 @@ function choroplethMap(neighborhood) {
 	d3.select(this)
 	    .attr("stroke-width", 2.5)
 
-	div
+	tooltip
 	    .style("opacity", 0.9)
 	    .html('<span style="font-weight: bold;">' + d.properties.neighborhood + '</span><br>' +
 		  '<em> Average response time: </em>' + d3.round(d.properties.avgresptime, 1) + " days<br>" +
@@ -194,7 +192,7 @@ function choroplethMap(neighborhood) {
     }
 
     function mousemove(d) {
-	div
+	tooltip
 	    .html('<span style="font-weight: bold;">' + d.properties.neighborhood + '</span><br>' +
 		  '<em> Average response time: </em>' + d3.round(d.properties.avgresptime, 1) + " days<br>" +
 		   '<em> Rank: </em>' + d.properties.rankrt + " of 190 neighborhoods")
@@ -206,7 +204,7 @@ function choroplethMap(neighborhood) {
 	d3.select(this)
 	    .attr("stroke-width", 1)
 
-	div.style("opacity", 0); 
+	tooltip.style("opacity", 0); 
     }
     
 }

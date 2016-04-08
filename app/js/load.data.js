@@ -105,8 +105,31 @@ function visualizeData(name, time) {
     var responseFiltered = neighResponse.filter(function(d) {
 	return d.neighborhood == name && d.time == time; 
     });
+
+    // Display neighborhood name and remove hidden classes
+    if ($(window).width() >= 500) {
+	$("#neighborhood-div").empty().append("<h1 id='neighborhood-name'> </h1>"); 
+	$("#content").css("opacity", 0); 
+	
+	// Populate neighborhood name (using typed.js) 
+	$(function(){
+	    $("#neighborhood-name").typed({
+		strings: ["Neighborhood: " + neighName],
+		typeSpeed: 0,
+		showCursor: false,
+		callback: function() {
+		    // When function is done, remove hidden content: 
+		    $("#content").removeClass("hidden").css("opacity", 1);
+	            $("footer").removeClass("hidden"); 
+		}
+	    });
+	});
+    } else {
+	$("#content").removeClass("hidden");
+	$("footer").removeClass("hidden"); 
+    }
     
-    // Display info associated with selected neighborhood
+    // Display stats associated with selected neighborhood
     displayNeighborhoodStats(responseFiltered);
 
     // Display line graph

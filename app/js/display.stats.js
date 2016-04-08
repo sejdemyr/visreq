@@ -14,29 +14,6 @@ function displayNeighborhoodStats(ndta) {
 	notsolved = ndta[0].nrequests - ndta[0].nsolved,
 	rankrt = ndta[0].rankrt;
     
-    // Display neighborhood name and info
-    if ($(window).width() >= 500) {
-	$("#neighborhood-div").empty().append("<h1 id='neighborhood-name'> </h1>"); 
-	$("#content").css("opacity", 0); 
-	
-	// Populate neighborhood name (using typed.js) 
-	$(function(){
-	    $("#neighborhood-name").typed({
-		strings: ["Neighborhood: " + neighName],
-		typeSpeed: 0,
-		showCursor: false,
-		callback: function() {
-		    // When function is done, remove hidden content: 
-		    $("#content").removeClass("hidden").css("opacity", 1);
-	            $("footer").removeClass("hidden"); 
-		}
-	    });
-	});
-    } else {
-	$("#content").removeClass("hidden");
-	$("footer").removeClass("hidden"); 
-    }
-
     // Populate quick facts
     $(".nname").text(neighName); 
     $(".nrequests").html(d3.format(",d")(ndta[0].nrequests));

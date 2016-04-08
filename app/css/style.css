@@ -10,7 +10,7 @@ h1#intro-header {
 }
 
 .section {
-    padding: 50px 0 30px 0; 
+    padding: 20px 0; 
 }
 
 .header {
@@ -20,7 +20,7 @@ h1#intro-header {
     font-size: 65px;
     font-weight: 700; 
     text-transform: uppercase;
-    margin-bottom: 0; 
+    margin-bottom: 3px; 
     margin-left: -4px;
     line-height: 70px;
 }
@@ -56,18 +56,45 @@ h1 {
     font-size: 40px;
 }
 
-
 footer {
-    padding-top: 70px;   
+    padding-top: 100px;   
     bottom: 0; 
+}
+
+#basic-info {
+    padding: 50px 0 80px 0;  
+}
+
+#explore-more > .ion-ios-arrow-down {
+    font-size: 30px;
+}
+
+#explore-more-text {
+    margin-bottom: -15px; 
 }
 
 #basic-info > p {
     padding-bottom: 5px; 
 }
 
+#choropleth-preview {
+    padding-top: 5%;
+    padding-bottom: 3%; 
+}
 
+#linegraph-preview {
+    padding-top: 5%;
+}
 
+#linegraph-preview > img {
+    width: 95%;
+    padding-top: 1%; 
+    padding-left: 10px;
+}
+
+#choropleth-preview > img {
+    padding-left: 15px;
+}
 
 #over_map {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial;   
@@ -197,4 +224,25 @@ input[type="radio"] {
     #pac-input {
 	width: 310px; 
     }
+}
+
+
+/*--------------------------------------------------------------------------
+   Modals
+----------------------------------------------------------------------------*/
+
+.modal-container {
+    position: relative;
+    overflow: scroll; 
+}
+
+.btn-close-modal {
+    width:100%;
+    text-align: right;  
+    cursor:pointer;
+    font-size: 25px;
+}
+
+.btn-close-modal:hover {
+    color: #0099cc;
 }

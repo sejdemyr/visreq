@@ -1,7 +1,7 @@
 
 
 #choropleth-map {
-    margin-left: -10px;
+    margin-left: 20px;
     margin-top: -20px; 
 }
 
@@ -39,7 +39,9 @@ div.tooltip {
   border: 0px;
   border-radius: 5px; 
   padding: 10px; 
-  pointer-events: none;         
+  pointer-events: none;
+  margin-top: -118%; 
+  margin-left: -37%;   
 }
 
 

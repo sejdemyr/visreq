@@ -14,6 +14,8 @@
     
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic" rel="stylesheet" type="text/css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-graphs.css" rel="stylesheet">
   </head>
@@ -52,88 +54,134 @@
 	  
 	</div>
 	
-	
-	
-	
-	
       </div>
     </div>
     <!-- /google map -->
     
+
     
-    <div id="content" class="container hidden">      
-      
+    <div id="content" class="container hidden">
       
       <!-- basic neighborhood info -->
-      <div class="section" id="basic-info">
-	
-	<div class="header"> Quick Facts </div> 
-	
-	<div class="row">	    
-	  <div class="col-lg-5 col-sm-6">
+      <div class="row" id="basic-info">	
+	<div class="col-sm-10 col-sm-offset-1">	  
+	  
+	  <div class="header"> Quick Facts </div> 
+	  
+	  <div class="row">	    
+	    <div class="col-lg-5 col-sm-6">
+	      
+	      <h2><i class="fa fa-database"></i> Number of requests: <span class="nrequests"> </span> </h2>
+	      <p> This is the number of service requests that were filed by residents in <span class="nname"> </span> between <span class="daterange"></span> and <span class="today"></span>.</p>
+	    </div>
 	    
-	    <h2><i class="fa fa-database"></i> Number of requests: <span class="nrequests"> </span> </h2>
-	    <p> This is the number of service requests that were filed by residents in <span class="nname"> </span> between <span class="daterange"></span> and <span class="today"></span>.</p>
-	  </div>
-	  
-	  <div class="col-lg-5 col-lg-offset-1 col-sm-6">
-	    <h2><i class="fa fa-check"></i> Resolved requests: <span class="pcsolved"> </span>% </h2>
-	    <p> Most service requests are resolved at some point &mdash; what matters more is how quickly they are resolved. </p>
-	  </div>
-	  
-	</div> 
-	
-	<div class="row">
-	  <div class="col-lg-5 col-sm-6">
-	    <h2><i class="fa fa-clock-o"></i> Mean response time: <span class="avgrt"> </span> days</h2>
-	    <p> This gives the average number of days it took government agencies to respond to requests in <span class="nname"></span>. <span class="notsolved"> </span> unresolved requests (<span class="pcnotsolved"> </span>% of the total) are not included in this number. </p>
+	    <div class="col-lg-5 col-lg-offset-1 col-sm-6">
+	      <h2><i class="fa fa-check"></i> Resolved requests: <span class="pcsolved"> </span>% </h2>
+	      <p> Most service requests are resolved at some point &mdash; what matters more is how quickly they are resolved. </p>
+	    </div>
+	    
 	  </div> 
 	  
-	  <div class="col-lg-5 col-lg-offset-1 col-sm-6">
-	    <h2><i class="fa fa-bar-chart "></i> Overall rank: <span class="pcrankrt"> </span>   </h2>
-	    <p> <span class="nname"> </span> ranks <span class="rankrt"> </span> out of <span class="nneighborhoods"> </span> neighborhoods in NYC in how quickly service
-	      requests were resolved between <span class="daterange"></span> and <span class="today"></span>. </p>
+	  <div class="row">
+	    <div class="col-lg-5 col-sm-6">
+	      <h2><i class="fa fa-clock-o"></i> Mean response time: <span class="avgrt"> </span> days</h2>
+	      <p> This gives the average number of days it took government agencies to respond to requests in <span class="nname"></span>. <span class="notsolved"> </span> unresolved requests (<span class="pcnotsolved"> </span>% of the total) are not included in this number. </p>
+	    </div> 
+	    
+	    <div class="col-lg-5 col-lg-offset-1 col-sm-6">
+	      <h2><i class="fa fa-bar-chart "></i> Overall rank: <span class="pcrankrt"> </span>   </h2>
+	      <p> <span class="nname"> </span> ranks <span class="rankrt"> </span> out of <span class="nneighborhoods"> </span> neighborhoods in NYC in how quickly service
+		requests were resolved between <span class="daterange"></span> and <span class="today"></span>. </p>
+	    </div>
 	  </div>
+	  
+	  
 	</div>
-	
-	
       </div>
       <!-- /basic neighborhood info -->
+
       
-      <!---------------------------------------------------------------------------------- 
-          row with neighborhood choropleth
-	---------------------------------------------------------------------------------->
-      <div class="section" id="choropleth-section">
+      <!-- explore more -->
+      <div class="row"> 
+	<div id="explore-more" class="text-center">
+	  <p id="explore-more-text"> EXPLORE MORE </p>
+	  <span class="ion-ios-arrow-down" data-pack="default"></span>  
+	</div>
+      </div> 
+      
+      <div class="row">
+	
+	<div class="col-sm-5 col-sm-offset-1">
+	  <a id="choropleth-preview" href="#choropleth-section" class="thumbnail">
+	    <img src="img/coropleth.png" class="img-responsive center-block">
+	  </a>
+	</div>
+	
+	<div class="col-sm-5">
+	  <a id="linegraph-preview" href="#linegraph-section" class="thumbnail">
+            <img src="img/linegraph.png" class="img-responsive center-block">
+	  </a>
+	</div>
+	
+      </div>
+      <!-- /explore more -->
+
+      
+      
+    </div>
+    <!-- /content --> 
+    
+    
+    <!-- populating modals --> 
+    <!---------------------------------------------------------------------------------- 
+        choropleth
+      ---------------------------------------------------------------------------------->
+    <div class="section modal-container" id="choropleth-section">
+      
+      
+      <div class="col-md-10 col-md-offset-1">
+	
+	<div class="btn-close-modal close-choropleth-section"> 
+          <span class="ion-close" data-pack="default"></span>
+        </div>
 	
 	<div class="header"> Welcome to the neighborhood </div> 
 	
 	<div class="row">
-	  <div class="col-md-5 col-sm-8"> 
+	  <div class="col-md-5 col-sm-6 col-xs-10"> 
 	    <p class="lead section-explanation"> Compare your neighborhood to others
 	      using this map. 
 	  </div>
 	</div>
 	
 	<div class="row">
-	  <div class="col-lg-10 col-lg-offset-1"> 
-	    <div id="choropleth-map"> </div>
+	  <div class="col-lg-10 col-lg-offset-1">
+	      <div id="choropleth-map"> </div>
 	  </div>
 	</div> 
 	
       </div>
       
+    </div>
+    
+    
+    
+    <!---------------------------------------------------------------------------------- 
+	line graph
+      ---------------------------------------------------------------------------------->
+    <div class="section modal-container" id="linegraph-section">
       
       
-      <!---------------------------------------------------------------------------------- 
-          line graph
-	---------------------------------------------------------------------------------->
-      
-      <div class="section" id="linegraph-section">
+      <div class="col-md-10 col-md-offset-1">
+	
+	<div class="btn-close-modal close-linegraph-section"> 
+	  <span class="ion-close" data-pack="default"></span>
+	</div>
 	
 	<div class="header"> Is it getting better? </div> 
 	
 	<div class="row" style="margin-bottom: 15px">
-	  <div class="col-md-5 col-sm-8"> 
+	  <div class="col-md-5 col-sm-6 col-xs-10"> 
 	    <p class="lead section-explanation"> Resolution time also depends on request type and varies over time. </p> 
 	  </div>
 	</div> 
@@ -168,18 +216,14 @@
 	  
 	</div> 
       </div>
-      
-      
-      
-      
-    </div> <!-- /content --> 
-    
+    </div> 
+
     
     
     <!-- Footer -->
     <footer class="hidden footer">
       <div class="container text-center">
-        <p class="small"> project by <a href="http://stanford.edu/~ejdemyr/" target="_blank"> sejdemyr</a> <br>
+	<p class="small"> project by <a href="http://stanford.edu/~ejdemyr/" target="_blank"> sejdemyr</a> <br>
 	  <a href="https://github.com/sejdemyr/visreq" target="_blank"> view on github</a> </p> 
       </div>
     </footer>
@@ -187,13 +231,13 @@
     
     
     <!---------------------------------------------------------------------------------->
+
     <!-- external javascript libraries -->
     <script src="https://www.google.com/jsapi"></script>
     <script>
       google.load('maps', '3', {
       other_params:'key=AIzaSyA9ykypr1vNCuTFfO6_ydDjlzN26Aw3W4A&libraries=places'
       });
-      google.setOnLoadCallback(initAutocomplete());
     </script> 
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
@@ -201,8 +245,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>  
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.5/js/bootstrap-dialog.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js"></script>     
     <script src="js/typed.js"></script>
+    <script src="js/animatedModal.js"></script>
     
     <!-- custom javascript files -->
     <script type="text/javascript" src="js/load.data.js"></script>
@@ -210,6 +254,26 @@
     <script type="text/javascript" src="js/line.graph.js"></script>
     <script type="text/javascript" src="js/choropleth.js"></script>
     <script type="text/javascript" src="js/map.google.js"></script>
-
+    
+    <script>
+            
+      // Choropleth Modal
+      $("#choropleth-preview").animatedModal({
+      modalTarget:'choropleth-section',
+      animatedIn:'zoomIn',
+      animatedOut:'zoomOut',
+      color:'#ffffff'    
+      });
+      
+      // Linegraph Modal
+      $("#linegraph-preview").animatedModal({
+      modalTarget:'linegraph-section',
+      animatedIn:'zoomIn',
+      animatedOut:'zoomOut',
+      color:'#ffffff'
+      });
+      
+    </script>
+    
   </body>
 </html>
