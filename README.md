@@ -8,16 +8,18 @@ by [NYC's 311 service request system](https://nycopendata.socrata.com/Social-Ser
 
 ### Overview 
 
-The project has two parts. First, a set of R scripts gathers the
-service request data from NYC's open data portal, spatially matches
-requests with neighborhood boundaries, and outputs aggregated summary
-statistics (by neighborhood, request type, and/or a time
-dimension). Because NYC adds and updates the request data daily, the
-scripts make it possible to automatically query new data and add them
-to the existing (local) database of service requests. Second, the web
-app uses the aggregated data to display facts and visualizations about
-a selected neighborhood. Only the `app` directory is needed to
-generate the app.
+The project has two parts:
+
+1. A set of R scripts gathers the service request data from NYC's open
+data portal, spatially matches requests with neighborhood boundaries,
+and outputs aggregated summary statistics (by neighborhood, request
+type, and/or a time dimension). Because NYC adds and updates the
+request data daily, the scripts make it possible to automatically
+query new data and add them to the existing (local) database of
+service requests.
+2. The web app uses the aggregated data to display summary statistics
+and visualizations, given a selected neighborhood. Only the `app`
+directory is needed to generate the app.
 
 
 ### Data 
@@ -39,12 +41,12 @@ app (saved in `app/data`).
 
 ### Software 
 
-R, including several packages. If you're on a mac, some of the GIS
+* R, including several packages. If you're on a mac, some of the GIS
 packages may require that unix frameworks (e.g., gdal and geos) be
 installed.
-
-To display neighborhood boundaries,
-[topojson](https://github.com/mbostock/topojson) is also used.
+* [topojson](https://github.com/mbostock/topojson) is used to display
+neighborhood boundaries.
+* Several JavaScript libraries (please refer to `app/index.html`). 
 
 
 ### License 
