@@ -23,7 +23,7 @@ var tooltip = d3.select("#choropleth-map").append('div')
 
 function choroplethMap(neighborhood) {
 
-    var color = d3.scale.threshold()
+    var color = d3.scaleThreshold()
 	.domain([17, 21, 25])
 	.range(["#edf8fb","#b3cde3","#8c96c6","#88419d"]);
     

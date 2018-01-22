@@ -8,7 +8,8 @@ NYC 311 data
 
 The data for 2004/01-2015/10 are stored in csv files in
 '311requests.tar.gz'. Data for later dates are added using
-update311.R.
+update311.R. NOTE: the raw 311 data moved to data folder; 
+now  contains data for 2004/01/01-2017/01/23. 
 
 The data come from NYC's open data portal: 
 - https://nycopendata.socrata.com/browse/embed?tags=all+service+requests&utf8=%E2%9C%93 
